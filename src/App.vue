@@ -17,6 +17,6 @@ body, html {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #f8fbff;
+  background: #f5f6f7;
 }
 </style>

@@ -10,7 +10,7 @@ import Vue from 'vue'
 import VueCrudIndex from './VueCrudIndex.vue'
 import VueCrudEdit from './VueCrudEdit.vue'
 import VueCrudNew from './VueCrudNew.vue'
-import 'element-ui/lib/theme-default/index.css'
+import '../../theme/index.css'
 
 Vue.use(ElementUI)
 
