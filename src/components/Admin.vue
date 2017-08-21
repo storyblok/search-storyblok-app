@@ -45,6 +45,11 @@ export default {
                 label: 'General',
                 fields: [
                   {
+                    component: 'v-crud-text',
+                    label: 'ID',
+                    name: 'uid'
+                  },
+                  {
                     component: 'el-input',
                     label: 'Url to crawl',
                     name: 'base_url'

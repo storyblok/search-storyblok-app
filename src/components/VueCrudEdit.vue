@@ -17,6 +17,7 @@
 <script>
 import Select from './fields/Select.vue'
 import Enqueue from './fields/Enqueue.vue'
+import Text from './fields/Text.vue'
 
 export default {
   name: 'v-crud-edit',
@@ -32,6 +33,7 @@ export default {
 
   components: {
     'v-crud-select': Select,
+    'v-crud-text': Text,
     'enqueue': Enqueue
   },
 
