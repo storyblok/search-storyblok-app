@@ -35,7 +35,15 @@ export default {
   },
 
   mounted () {
-    this.search()
+    if (this.rootModel.uid) {
+      this.search()
+    }
+  },
+
+  watch: {
+    rootModel () {
+      this.search()
+    }
   },
 
   methods: {
