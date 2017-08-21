@@ -32,7 +32,7 @@ let routerInstance = new Router({
       path: '/',
       name: 'home',
       component: Admin,
-      props: { model: 'orders', id: 'all', action: 'index' }
+      props: { model: 'crawl_configs', id: 'all', action: 'index' }
     },
     {
       path: '/admin/:model/:id/:action',

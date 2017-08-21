@@ -65,6 +65,11 @@ export default {
             columns: [
               {
                 component: 'el-table-column',
+                label: 'ID',
+                property: 'uid'
+              },
+              {
+                component: 'el-table-column',
                 label: 'Url',
                 property: 'base_url'
               },
