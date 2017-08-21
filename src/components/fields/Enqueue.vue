@@ -1,6 +1,12 @@
 <template>
   <div>
     <el-button @click="onSubmit">Initiate crawl</el-button>
+    <div v-if="indexing">
+      Indexing ...
+    </div>
+    <div v-if="results.hits">
+      Documents in index: {{ results.hits.total }}
+    </div>
   </div>
 </template>
 
@@ -15,8 +21,21 @@ export default {
 
   data () {
     return {
-      api: null
+      api: null,
+      searchApi: null,
+      results: {},
+      interval: null,
+      indexing: false,
+      intervalCount: 0
     }
+  },
+
+  destroyed () {
+    clearInterval(this.interval)
+  },
+
+  mounted () {
+    this.search()
   },
 
   methods: {
@@ -28,9 +47,31 @@ export default {
         .save()
         .then(() => {
           this.$message('Enqueued successfully')
+
+          this.intervalCount = 0
+          this.interval = setInterval(this.search, 2000)
+          this.indexing = true
         })
         .catch((res) => {
           this.$message.error('Oops, something went wrong. ' + JSON.stringify(res.data))
+        })
+    },
+
+    search () {
+      this.searchApi = this.$resource(
+        `https://sapi.searchblok.com/v1/${this.rootModel.uid}/_search`)
+
+      if (this.intervalCount > 10) {
+        clearInterval(this.interval)
+        this.indexing = false
+      }
+
+      this.intervalCount += 1
+
+      this.searchApi
+        .save()
+        .then((res) => {
+          this.results = res.data
         })
     }
   }
