@@ -38,6 +38,7 @@ export default {
             name: 'Crawler',
             hideCreate: true,
             rootObject: 'crawl_configs',
+            singleRootObject: 'crawl_config',
             selectable: false,
             formFields: [
               {
